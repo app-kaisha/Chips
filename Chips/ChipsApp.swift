@@ -12,7 +12,10 @@ import SwiftUI
 struct ChipsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ChipView()
+                .onAppear {
+                    Thread.sleep(forTimeInterval: 3)
+                }
         }
     }
 }
