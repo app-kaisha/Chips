@@ -27,9 +27,9 @@ var mockChips: [Chip] = [
     .init(name: "Pinterest"),
     .init(name: "Reddit"),
     .init(name: "TikTok"),
-    .init(name: "Apple"),
-    .init(name: "Apple"),
-    .init(name: "Apple"),
-    .init(name: "Apple"),
+    .init(name: "Uber"),
+    .init(name: "Spotify"),
+    .init(name: "Whatsapp"),
+    .init(name: "Prime"),
     
 ]
