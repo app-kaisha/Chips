@@ -7,26 +7,38 @@
 //
 import SwiftUI
 
+enum ChipChopType {
+    case fixedPieces
+    case frameWidth
+}
+
 struct ChipsView<Content: View>: View {
+    
+    @Binding var chopType: ChipChopType
+    @Binding var pieceCount: Float
     
     @ViewBuilder
     var content: Content
     
     var body: some View {
-        // return a collection of subviews based on teh provided view
+        // return a collection of subviews based on th eprovided view
         Group(subviews: content) { collection in
-            let choppedCollection = collection.chopByWidth(270)
             
-            VStack(alignment: .center, spacing: 10.0) {
+            let choppedCollection = chopType == .frameWidth ? collection.chopIntoPieces(Int(pieceCount)) : collection.chopByWidth(270)
+            
+            //let choppedCollection = collection.chopByWidth(270)
+            
+            VStack(alignment: .leading, spacing: 10.0) {
                 ForEach(choppedCollection.indices, id:\.self) { index in
-                    HStack(spacing: 10.0) {
+                    HStack(alignment: .top, spacing: 10.0) {
                         ForEach(choppedCollection[index]) { subview in
-                            //let viewWidth = subview.containerValues.viewWidth
+                            let viewWidth = subview.containerValues.viewWidth
                             
                             subview
                         }
                     }
                 }
+                Spacer()
             }
         }
     }
