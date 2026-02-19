@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ChipView: View {
     
-    @State private var containerWidth: Float = 4
+    @State private var containerWidth: Float = 3
     @State private var isFixedWidth: Bool = false
     
     @State var bindChopType: ChipChopType = .fixedPieces
@@ -31,7 +31,7 @@ struct ChipView: View {
             
             Divider()
             
-            VStack(alignment: .leading, spacing: 20.0) {
+            VStack(alignment: .center, spacing: 20.0) {
                 
                 ScrollView(.vertical){
                     ChipsView(chopType: $bindChopType, pieceCount: $containerWidth) {
@@ -72,7 +72,7 @@ struct ChipView: View {
                     Text("Number of Containers")
                         .font(.callout)
                         .foregroundStyle(.secondary)
-                    Slider(value: $containerWidth, in: 1...6, step: 1, minimumValueLabel: Text("1"), maximumValueLabel: Text("6")) {
+                    Slider(value: $containerWidth, in: 1...5, step: 1, minimumValueLabel: Text("1"), maximumValueLabel: Text("5")) {
                     }
                     .padding(10)
                     .foregroundStyle(.secondary)

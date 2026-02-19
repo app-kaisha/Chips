@@ -24,11 +24,11 @@ struct ChipsView<Content: View>: View {
         // return a collection of subviews based on th eprovided view
         Group(subviews: content) { collection in
             
-            let choppedCollection = chopType == .frameWidth ? collection.chopIntoPieces(Int(pieceCount)) : collection.chopByWidth(270)
+            let choppedCollection = chopType == .fixedPieces ? collection.chopIntoPieces(Int(pieceCount)) : collection.chopByWidth(270)
             
             //let choppedCollection = collection.chopByWidth(270)
             
-            VStack(alignment: .leading, spacing: 10.0) {
+            VStack(alignment: .center, spacing: 10.0) {
                 ForEach(choppedCollection.indices, id:\.self) { index in
                     HStack(alignment: .top, spacing: 10.0) {
                         ForEach(choppedCollection[index]) { subview in
